@@ -1,0 +1,11 @@
+[package]
+name = "mpv-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#libmpv = {git = "https://github.com/StratusFearMe21/libmpv-rs" , features = ["build_libmpv"]}
+# libmpv = {version= "2.0.1" , features = ["build_libmpv"]}
+libmpv = {path = "../libmpv-rs", features=["build_libmpv"]}
