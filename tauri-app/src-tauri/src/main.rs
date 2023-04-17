@@ -29,7 +29,7 @@ fn stop(player: State<AppState>) {
     if let Some(p) = player.lock().unwrap().player.as_ref() {
         println!("Stopping player");
         if let Err(err) = p.stop() {
-            println!("Error stopping player: {:?}", err);
+            println!("Error stopping player: {:?} ;", err);
         }
     }
 

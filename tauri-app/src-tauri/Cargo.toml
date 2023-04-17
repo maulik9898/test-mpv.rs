@@ -16,7 +16,7 @@ tauri-build = { version = "1.2", features = [] }
 tauri = { version = "=2.0.0-alpha.4", features = ["shell-open"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-libmpv = {path = "../../libmpv-rs", features= ["build_libmpv"] }
+libmpv = {git="https://github.com/maulik9898/libmpv-rs", features= ["build_libmpv"] }
 tao = "0.19.0"
 glutin = { package = "glutin_tao", version = "0.32.0" }
 

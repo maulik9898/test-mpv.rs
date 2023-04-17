@@ -42,24 +42,19 @@ impl MpvPlayer {
             // ev_ctx
             //     .observe_property("time-pos", Format::Int64, 0)
             //     .unwrap();
-            mpv.event_context_mut()
-                .disable_deprecated_events()
+
+            let mut ctx = mpv.create_event_context();
+            ctx.disable_deprecated_events()
                 .expect("Failed to disable deprecated events");
-            mpv.event_context_mut()
-                .observe_property("time-pos", libmpv::Format::Int64, 0)
+            ctx.observe_property("time-pos", libmpv::Format::Int64, 0)
                 .expect("Failed to observe time-pos");
-            mpv.event_context_mut()
-                .observe_property("pause", libmpv::Format::Flag, 0)
+            ctx.observe_property("pause", libmpv::Format::Flag, 0)
                 .expect("Failed to observe pause");
-            mpv.event_context_mut()
-                .observe_property("duration", libmpv::Format::Int64, 0)
+            ctx.observe_property("duration", libmpv::Format::Int64, 0)
                 .expect("Failed to observe duration");
 
             loop {
-                let ev = mpv
-                    .event_context_mut()
-                    .wait_event(2.0)
-                    .unwrap_or(Err(Error::Null));
+                let ev = ctx.wait_event(2.0).unwrap_or(Err(Error::Null));
 
                 match ev {
                     Ok(libmpv::events::Event::EndFile(r)) => {

@@ -1493,6 +1493,7 @@ dependencies = [
 [[package]]
 name = "libmpv"
 version = "2.0.1"
+source = "git+https://github.com/maulik9898/libmpv-rs#d8bd55eff5cb55da93aa47c88917f228e528785a"
 dependencies = [
  "libmpv-sys",
 ]
@@ -1500,6 +1501,7 @@ dependencies = [
 [[package]]
 name = "libmpv-sys"
 version = "3.1.0"
+source = "git+https://github.com/maulik9898/libmpv-rs#d8bd55eff5cb55da93aa47c88917f228e528785a"
 
 [[package]]
 name = "line-wrap"
